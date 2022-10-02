@@ -1,0 +1,68 @@
+<h1>La liste des formations de la classe {{ v1 }} dans la salle {{ v2 }}</h1>
+{% if  listFormation is empty%}
+<h6>Tableau vide</h6>
+{% else %}
+<table border="1">
+    <tr>
+        <td>Ref</td>
+        <td>Titre</td>
+        <td>Description</td>
+        <td>N_P</td>
+        <td>Participer</td>
+    </tr>
+    {% for f in listFormation %}
+        {% if f.Description == "theorique" %}
+        
+        <tr>
+            <td>{{ f.ref }}</td>
+            <td>{{ f.Titre|upper }}</td>
+            <td>{{ f.Description }}</td>
+            <td>{{ f.nb_participants }}</td>
+            <td>
+                {% if f.nb_participants == 0 %}
+                <a href="{{ path('app_reservation') }}">Participer</a>
+                {% else %}
+                complet
+                {% endif%}
+  
+            </td>
+        </tr>
+        {% endif %}
+    {% endfor %}
+    {% endif %}
+</table>
+<h3 style="color: coral">Nb de formation = {{ listFormation|length }}</h3>
+<h3 style="color: crimson">Total des participants : x</h3>
+
+{% set x= 0 %}
+nbr= {{0 }}
+
+<h2> La formation ayant le plus grand nombre de participants.</h2>
+
+{% set a=0 %}
+{% for m in listFormation %}
+    {%set a=max(m.nb_participants,a) %}
+{% endfor %}
+<table border="2">
+
+<tr>
+    <td>ref </td>
+    <td> Titre</td>
+    <td>Description </td>
+    <td> nb_participants</td>
+</tr>
+ {% for i in listFormation %}
+ {% if a==i.nb_participants %}
+<tr>
+    <td>{{ i.ref}} </td>
+    <td> {{ i.Titre|upper }}</td>
+    <td>{{ i.Description}} </td>
+    <td> {{ i.nb_participants }}</td>
+</tr>
+ {% endif %}
+ {% endfor %}
+</table>
+
+<h3> le nombre total de participants dans toutes les formations.</h3>
+
+
