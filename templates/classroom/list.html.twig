@@ -1,0 +1,9 @@
+<a href="#">Add classroom</a>
+<h5>List classroom</h5>
+{% for s in tabclassroom %}
+   id: {{ s.nce }}
+    name:{{ s.name }}
+    <a href="#">Update</a>
+    <a href="#">Delete</a>
+    <br>
+{% endfor %}
