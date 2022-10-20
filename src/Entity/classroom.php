@@ -43,6 +43,7 @@ class classroom
             $this->nbrStudent = $nbrStudent;
     
             return $this;
+    
         }
     }
 

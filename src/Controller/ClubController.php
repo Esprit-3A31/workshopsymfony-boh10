@@ -19,8 +19,6 @@ class ClubController extends AbstractController
    
    
    
-   
-   
     #[Route('/formations', name: 'list_formation')]
     public function formations()
     {
