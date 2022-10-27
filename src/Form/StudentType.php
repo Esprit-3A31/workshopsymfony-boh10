@@ -18,6 +18,7 @@ class StudentType extends AbstractType
         $builder
             ->add('nce')
             ->add('username')
+            ->add('Moyenne')
             ->add('classroom',
             EntityType::class,array(
                 'class'=>Classroom::class,

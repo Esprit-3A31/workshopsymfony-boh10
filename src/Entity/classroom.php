@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ClassRoomRepository::class)]
 class ClassRoom
-{ 
+{
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -87,5 +87,8 @@ class ClassRoom
         }
 
         return $this;
+    }
+   public function __toString () {
+       return(String)$this->getName() ;
     }
 }
